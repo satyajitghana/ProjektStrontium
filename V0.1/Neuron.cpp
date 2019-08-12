@@ -62,14 +62,14 @@ void Neuron::update_input_weights(Layer& prev_layer) {
     for (unsigned n = 0 ; n < prev_layer.size() ; n++) {
         Neuron& neuron = prev_layer.at(n);
 
-        double old_delta_weight = neuron.get_connections().at(n).delta_weight;
+        double old_delta_weight = neuron.get_connections().at(this -> neuron_idx).delta_weight;
 
         double new_delta_weight = 
             eta * neuron.get_output_val()
                 * this -> gradient
                 + alpha * old_delta_weight;
         
-        neuron.get_connections().at(n).delta_weight = new_delta_weight;
-        neuron.get_connections().at(n).weight += new_delta_weight;
+        neuron.get_connections().at(this -> neuron_idx).delta_weight = new_delta_weight;
+        neuron.get_connections().at(this -> neuron_idx).weight += new_delta_weight;
     }
 }

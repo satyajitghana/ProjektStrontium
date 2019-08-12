@@ -1,17 +1,17 @@
 [
 {
   "directory": "/home/shadowleaf/Projects/ProjektStrontium/V0.1/build",
-  "command": "/bin/g++   -I/home/shadowleaf/Projects/ProjektStrontium/V0.1/src  -g   -o CMakeFiles/ProjektStrontium.dir/main.cpp.o -c /home/shadowleaf/Projects/ProjektStrontium/V0.1/main.cpp",
+  "command": "/bin/g++   -I/home/shadowleaf/Projects/ProjektStrontium/V0.1/src   -std=c++17 -g   -std=gnu++17 -o CMakeFiles/ProjektStrontium.dir/main.cpp.o -c /home/shadowleaf/Projects/ProjektStrontium/V0.1/main.cpp",
   "file": "/home/shadowleaf/Projects/ProjektStrontium/V0.1/main.cpp"
 },
 {
   "directory": "/home/shadowleaf/Projects/ProjektStrontium/V0.1/build",
-  "command": "/bin/g++   -I/home/shadowleaf/Projects/ProjektStrontium/V0.1/src  -g   -o CMakeFiles/ProjektStrontium.dir/NeuralNet.cpp.o -c /home/shadowleaf/Projects/ProjektStrontium/V0.1/NeuralNet.cpp",
+  "command": "/bin/g++   -I/home/shadowleaf/Projects/ProjektStrontium/V0.1/src   -std=c++17 -g   -std=gnu++17 -o CMakeFiles/ProjektStrontium.dir/NeuralNet.cpp.o -c /home/shadowleaf/Projects/ProjektStrontium/V0.1/NeuralNet.cpp",
   "file": "/home/shadowleaf/Projects/ProjektStrontium/V0.1/NeuralNet.cpp"
 },
 {
   "directory": "/home/shadowleaf/Projects/ProjektStrontium/V0.1/build",
-  "command": "/bin/g++   -I/home/shadowleaf/Projects/ProjektStrontium/V0.1/src  -g   -o CMakeFiles/ProjektStrontium.dir/Neuron.cpp.o -c /home/shadowleaf/Projects/ProjektStrontium/V0.1/Neuron.cpp",
+  "command": "/bin/g++   -I/home/shadowleaf/Projects/ProjektStrontium/V0.1/src   -std=c++17 -g   -std=gnu++17 -o CMakeFiles/ProjektStrontium.dir/Neuron.cpp.o -c /home/shadowleaf/Projects/ProjektStrontium/V0.1/Neuron.cpp",
   "file": "/home/shadowleaf/Projects/ProjektStrontium/V0.1/Neuron.cpp"
 }
 ]

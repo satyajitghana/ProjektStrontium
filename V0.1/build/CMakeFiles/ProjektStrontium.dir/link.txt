@@ -1,1 +1,1 @@
-/bin/g++  -g  -rdynamic CMakeFiles/ProjektStrontium.dir/main.cpp.o CMakeFiles/ProjektStrontium.dir/NeuralNet.cpp.o CMakeFiles/ProjektStrontium.dir/Neuron.cpp.o  -o ProjektStrontium 
+/bin/g++   -std=c++17 -g  -rdynamic CMakeFiles/ProjektStrontium.dir/main.cpp.o CMakeFiles/ProjektStrontium.dir/NeuralNet.cpp.o CMakeFiles/ProjektStrontium.dir/Neuron.cpp.o  -o ProjektStrontium 

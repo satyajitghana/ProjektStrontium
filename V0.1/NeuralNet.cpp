@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <cmath>
+#include <iostream>
 
 // Constructor of the Neural NeuralNetwork
 NeuralNet::NeuralNet(const std::vector<unsigned> &topology) {
@@ -38,8 +39,11 @@ void NeuralNet::feed_forward(const std::vector<double>& input_vals) {
     for (unsigned curr_layer = 1 ; curr_layer < layers.size() ; curr_layer++) {
         Layer& prev_layer = layers.at(curr_layer-1);
 
-        for(Neuron& neuron : layers.at(curr_layer)) {
-            neuron.feed_forward(prev_layer);
+        // for(Neuron& neuron : layers.at(curr_layer)) {
+        //     neuron.feed_forward(prev_layer);
+        // }
+        for (unsigned n = 0 ; n < this -> layers.at(curr_layer).size() - 1 ; n++) {
+            this -> layers.at(curr_layer).at(n).feed_forward(prev_layer);
         }
     }
 }
@@ -65,7 +69,7 @@ void NeuralNet::back_prop(const std::vector<double>& target_vals) {
    }
 
    // Calculate Hidden Layer Gradients
-   for (unsigned curr_layer = this -> layers.size() - 2 ; curr_layer >= 0 ; curr_layer--) {
+   for (unsigned curr_layer = this -> layers.size() - 2 ; curr_layer > 0 ; curr_layer--) {
        Layer& hidden_layer = this -> layers.at(curr_layer);
        Layer& next_layer = this -> layers.at(curr_layer+1);
 
@@ -79,9 +83,35 @@ void NeuralNet::back_prop(const std::vector<double>& target_vals) {
         Layer& layer = this -> layers.at(curr_layer);
         Layer& prev_layer = this -> layers.at(curr_layer-1);
 
-        for (Neuron& neuron: layer) {
-            neuron.update_input_weights(prev_layer);
+        // for (Neuron& neuron: layer) {
+        //     neuron.update_input_weights(prev_layer);
+        // }
+
+        for (unsigned n = 0 ; n < layer.size() - 1; n++) {
+            layer.at(n).update_input_weights(prev_layer);
         }
     }
 }
+
+void NeuralNet::get_results(std::vector<double> &result_vals) const {
+    result_vals.clear();
+
+    for (auto neuron : this -> layers.back()) {
+        result_vals.push_back(neuron.get_output_val());
+    }
+}
+
+std::ostream& NeuralNet::print(std::ostream& out) const {
+
+    out << "Neural Network Details" << std::endl;
+    out << "Layers : ";
+    out << "[ ";
+    for (const Layer& layer: this -> layers) {
+        out << layer.size() << ", ";
+    }
+    out << "] ";
+
+    return out;
+}
+
 

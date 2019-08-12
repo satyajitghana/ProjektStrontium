@@ -6,26 +6,12 @@
 
 #IncludeRegexTransform: 
 
-/home/shadowleaf/Projects/ProjektStrontium/V0.1/NeuralNet.cpp
-NeuralNet.hpp
 /home/shadowleaf/Projects/ProjektStrontium/V0.1/NeuralNet.hpp
 Neuron.hpp
 /home/shadowleaf/Projects/ProjektStrontium/V0.1/Neuron.hpp
 vector
 -
-cmath
--
-
-/home/shadowleaf/Projects/ProjektStrontium/V0.1/NeuralNet.hpp
-Neuron.hpp
-/home/shadowleaf/Projects/ProjektStrontium/V0.1/Neuron.hpp
-vector
--
-
-/home/shadowleaf/Projects/ProjektStrontium/V0.1/Neuron.cpp
-Neuron.hpp
-/home/shadowleaf/Projects/ProjektStrontium/V0.1/Neuron.hpp
-cmath
+iostream
 -
 
 /home/shadowleaf/Projects/ProjektStrontium/V0.1/Neuron.hpp
