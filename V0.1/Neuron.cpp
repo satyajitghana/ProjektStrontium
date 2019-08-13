@@ -2,11 +2,7 @@
 
 #include <cmath>
 
-Neuron::Neuron() {
-
-}
-
-Neuron::Neuron(double num_outputs, unsigned neuron_idx) {
+Neuron::Neuron(unsigned num_outputs, unsigned neuron_idx) {
     for(unsigned c = 0 ; c < num_outputs ; c++) {
         this -> output_weights.push_back(Connection());
         this -> output_weights.back().weight = random_weight();
@@ -45,7 +41,7 @@ void Neuron::calc_hidden_grads(const Layer& next_layer) {
     this -> gradient = dow * Neuron::activation_function_derivative(this -> output_val);
 }
 
-double Neuron::sum_delta_weights(const Layer& next_layer) {
+double Neuron::sum_delta_weights(const Layer& next_layer) const {
     double sum = 0.0;
 
     for (unsigned n = 0 ; n < next_layer.size() - 1 ; n++) {
@@ -64,12 +60,10 @@ void Neuron::update_input_weights(Layer& prev_layer) {
 
         double old_delta_weight = neuron.get_connections().at(this -> neuron_idx).delta_weight;
 
-        double new_delta_weight = 
-            eta * neuron.get_output_val()
-                * this -> gradient
-                + alpha * old_delta_weight;
+        double new_delta_weight = Neuron::eta * neuron.get_output_val() * this -> gradient
+                                + Neuron::alpha * old_delta_weight;
         
-        neuron.get_connections().at(this -> neuron_idx).delta_weight = new_delta_weight;
-        neuron.get_connections().at(this -> neuron_idx).weight += new_delta_weight;
+        neuron.get_connections_ref().at(this -> neuron_idx).delta_weight = new_delta_weight;
+        neuron.get_connections_ref().at(this -> neuron_idx).weight += new_delta_weight;
     }
 }

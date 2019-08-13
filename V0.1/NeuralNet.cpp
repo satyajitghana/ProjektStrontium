@@ -52,15 +52,19 @@ void NeuralNet::back_prop(const std::vector<double>& target_vals) {
    // Calculate the overall net error (RMS)
    Layer& output_layer = this -> layers.back();
 
+   // RMS Error
    double error = 0.0;
 
    for (unsigned n = 0 ; n < target_vals.size() ; n++) {
-       double delta = target_vals.at(n) - output_layer.at(n).get_output_val();
-       error += delta * delta;
+      double delta = target_vals.at(n) - output_layer.at(n).get_output_val();
+      error += delta * delta;
    }
 
    error /= output_layer.size() - 1;
    error = sqrt(error); // RMS
+   this -> error = error;
+
+   std::cout << "ERROR : " << error << std::endl;
 
    // Calculate Output Layer Gradients
    // The size is one less to ignore the bias layer
